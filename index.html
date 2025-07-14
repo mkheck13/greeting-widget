@@ -111,13 +111,25 @@
 </div>
 
 <script>
+  const username = "Michael"; // ← change this to your name!
+
   function displayGreetings(today) {
     let hrs = today.getHours();
     let greet = "";
-    if (hrs < 12) greet = "Good Morning";
-    else if (hrs >= 12 && hrs <= 17) greet = "Good Afternoon";
-    else if (hrs >= 17 && hrs <= 24) greet = "Good Evening";
-    document.getElementById('greet').textContent = greet;
+    let icon = "";
+
+    if (hrs < 12) {
+      greet = `Good Morning, ${username}`;
+      icon = "☀️";
+    } else if (hrs >= 12 && hrs <= 17) {
+      greet = `Good Afternoon, ${username}`;
+      icon = "🌤️";
+    } else {
+      greet = `Good Evening, ${username}`;
+      icon = "🌙";
+    }
+
+    document.getElementById('greet').textContent = `${icon} ${greet}`;
   }
 
   function displayDate(today) {
@@ -162,6 +174,7 @@
 
   displayWidget();
 </script>
+
 
 </body>
 </html>
